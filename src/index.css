@@ -1,0 +1,163 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system for woodworking business with warm, natural colors */
+
+@layer base {
+  :root {
+    --background: 45 15% 97%;
+    --foreground: 30 25% 15%;
+
+    --card: 40 20% 98%;
+    --card-foreground: 30 25% 15%;
+
+    --popover: 40 20% 98%;
+    --popover-foreground: 30 25% 15%;
+
+    --primary: 25 50% 35%;
+    --primary-foreground: 45 20% 95%;
+
+    --secondary: 35 25% 88%;
+    --secondary-foreground: 30 25% 25%;
+
+    --muted: 35 15% 92%;
+    --muted-foreground: 30 15% 45%;
+
+    --accent: 30 40% 75%;
+    --accent-foreground: 30 25% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 90%;
+    --ring: 25 50% 35%;
+
+    --wood-primary: 25 50% 35%;
+    --wood-light: 35 40% 75%;
+    --wood-dark: 20 40% 25%;
+    --cream: 45 30% 94%;
+    --warm-gray: 30 10% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 45 20% 90%;
+
+    --card: 30 15% 10%;
+    --card-foreground: 45 20% 90%;
+
+    --popover: 30 15% 10%;
+    --popover-foreground: 45 20% 90%;
+
+    --primary: 30 40% 60%;
+    --primary-foreground: 30 15% 8%;
+
+    --secondary: 30 15% 15%;
+    --secondary-foreground: 45 20% 90%;
+
+    --muted: 30 10% 20%;
+    --muted-foreground: 45 10% 65%;
+
+    --accent: 30 30% 25%;
+    --accent-foreground: 45 20% 90%;
+
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 30 40% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .wood-gradient {
+    background: linear-gradient(135deg, hsl(var(--wood-light)) 0%, hsl(var(--wood-primary)) 100%);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .scale-hover {
+    transition: transform 0.3s ease;
+  }
+
+  .scale-hover:hover {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--wood-primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--wood-dark));
+}
